@@ -113,7 +113,6 @@ def remove_mesa(id):
     return jsonify({'Sucesso': 'Mesa removida'}), 200
 	
 # API COMANDA
-'''
 comandas = [
   {
     "codComanda": 0,
