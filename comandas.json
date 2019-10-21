@@ -1,0 +1,20 @@
+[
+    {
+        "codComanda": 0,
+        "Comida": ["Arroz", "Feijao", "Carne"],
+        "Bebida": ["CocaCola", "Suco"],
+        "Observacao" : "Sem acucar"
+    },
+    {
+        "codComanda": 1,
+        "Comida": ["Arroz", "Feijao", "Carne"],
+        "Bebida": ["CocaCola", "Suco"],
+        "Observacao" : "Sem acucar"
+    },
+    {
+        "codComanda": 2,
+        "Comida": ["Arroz", "Feijao", "Carne"],
+        "Bebida": ["CocaCola", "Suco"],
+        "Observacao" : "Sem acucar"
+    }
+]

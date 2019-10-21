@@ -114,37 +114,39 @@ def remove_mesa(id):
 	
 # API COMANDA
 comandas = [
-  {
-    "codComanda": 0,
-    "Comida": ["Arroz", "Feijao", "Carne"],
-    "Bebida": ["CocaCola", "Suco"],
-    "Observacao" : "Sem acucar"
-  },
-  {
-    "codComanda": 1,
-    "Comida": ["Arroz", "Feijao", "Carne"],
-    "Bebida": ["CocaCola", "Suco"],
-    "Observacao" : "Sem acucar"
-  },
-  {
-    "codComanda": 2,
-    "Comida": ["Arroz", "Feijao", "Carne"],
-    "Bebida": ["CocaCola", "Suco"],
-    "Observacao" : "Sem acucar"
-  }
+    {
+        "codComanda": 0,
+        "Comida": ["Arroz", "Feijao", "Carne"],
+        "Bebida": ["CocaCola", "Suco"],
+        "Observacao" : "Sem acucar"
+    },
+    {
+        "codComanda": 1,
+        "Comida": ["Arroz", "Feijao", "Carne"],
+        "Bebida": ["CocaCola", "Suco"],
+        "Observacao" : "Sem acucar"
+    },
+    {
+        "codComanda": 2,
+        "Comida": ["Arroz", "Feijao", "Carne"],
+        "Bebida": ["CocaCola", "Suco"],
+        "Observacao" : "Sem acucar"
+    }
 ]
 
 def CarregaComandas():
+    global comandas
     comandas.clear()
     with open('comandas.json', 'r') as f:
         comandas = json.load(f)
 
+@app.route('/comanda', methods=['GET'])
+def homeComandas():
+    #CarregaComandas()
+    return jsonify(comandas), 200
 
-with open('distros.json', 'r') as f:
-    distros_dict = json.load(f)
-
-@app.route('/comanda', methods=['POST'])
-def adicionar_comanda():'''
+#@app.route('/comanda', methods=['POST'])
+#def adicionar_comanda():
 
 
 if __name__ == '__main__':
