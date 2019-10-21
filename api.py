@@ -140,10 +140,38 @@ def CarregaComandas():
     with open('comandas.json', 'r') as f:
         comandas = json.load(f)
 
+def GravarComandas():
+    with open('comandas.json', 'w') as json_file:
+        json.dump(comandas, json_file)
+
 @app.route('/comanda', methods=['GET'])
 def homeComandas():
-    #CarregaComandas()
+    CarregaComandas()
     return jsonify(comandas), 200
+
+@app.route('/comanda', methods=['POST'])   
+def adicionar_comanda():
+    data = request.get_json()
+    comandas.append(data)
+    GravarComandas()
+    return jsonify(comandas), 201
+
+@app.route('/comanda/<int:id>', methods=['POST'])
+def editarComanda(id):
+    for comanda in comandas:
+        if comanda['codComanda'] == id:
+            comanda['Comida'] = request.get_json().get('Comida')
+            comanda['Bebida'] = request.get_json().get('Bebida')
+            comanda['Observacao'] = request.get_json().get('Observacao')
+            return jsonify(comanda[id]), 200
+    return jsonify({'Erro': 'Comanda nao encontrada'}), 404
+
+@app.route('/comanda/<int:id>', methods=['GET'])
+def comanda_por_id(id):
+    for comanda in comandas:
+        if comanda['codComanda'] == id:
+            return jsonify(comanda), 200
+    return jsonify({'Erro': 'Comanda nao encontrada'}), 404
 
 #@app.route('/comanda', methods=['POST'])
 #def adicionar_comanda():
