@@ -1,0 +1,17 @@
+{
+  "Comidas": [
+    "Estrogonoff de Frango", 
+    "Feijoada", 
+    "Sopa de Legumes",
+    "Arroz carreteiro",
+    "Torta de frango",
+    "Peixe Frito"
+    ],
+  "Bebidas": [
+    "CocaCola",
+    "Guarana",
+    "Suco de Uva",
+    "Suco de Laranja",
+    "Suco de Maracuja"
+    ]
+}

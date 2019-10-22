@@ -176,6 +176,30 @@ def comanda_por_id(id):
 #@app.route('/comanda', methods=['POST'])
 #def adicionar_comanda():
 
+# API CARDAPIO
+cardapio = [
+    {
+        "Comidas": ["Estrogonoff de Frango","Feijoada","Sopa de Legumes","Arroz carreteiro","Torta de frango","Peixe Frito"],
+        "Bebidas": ["CocaCola","Guarana","Suco de Uva","Suco de Laranja","Suco de Maracuja"]
+    }
+]
+
+def CarregaCardapio():
+    global cardapio
+    cardapio.clear()
+    with open('cardapio.json', 'r') as f:
+        cardapio = json.load(f)
+
+def GravarCardapio():
+    with open('cardapio.json', 'w') as json_file:
+        json.dump(cardapio, json_file)
+
+@app.route('/cardapio', methods=['GET'])
+def homeCardapio():
+    #CarregaCardapio()
+    return jsonify(cardapio), 200
+
+
 
 if __name__ == '__main__':
     CarregaMesas()
