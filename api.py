@@ -199,6 +199,13 @@ def homeCardapio():
     #CarregaCardapio()
     return jsonify(cardapio), 200
 
+@app.route('/cardapio', methods=['POST'])   
+def adicionar_cardapio():
+    data = request.get_json()
+    cardapio.append(data)
+    GravarCardapio()
+    return jsonify(cardapio), 201
+
 
 
 if __name__ == '__main__':
